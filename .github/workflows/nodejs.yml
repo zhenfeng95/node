@@ -17,10 +17,9 @@ jobs:
         node-version: 12
     - name: npm install and build
       run: |
-        npm install
-        npm run build
+        npm install && npm run build
       env:
-          CI: true
+        CI: true
     - name: Node
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with: 
