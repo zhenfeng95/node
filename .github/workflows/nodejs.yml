@@ -12,9 +12,9 @@ jobs:
       with:
         persist-credentials: false
     - name: use Node.js 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
     - name: npm install and build
       run: |
         npm install
