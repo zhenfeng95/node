@@ -11,13 +11,20 @@ jobs:
       uses: actions/checkout@master # 将代码拷贝到虚机中
       with:
         persist-credentials: false
-    - name: Install
+    - name: use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+    - name: npm install and build
       run: |
         npm install
+        npm run build
+      env:
+          CI: true
     - name: Node
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with: 
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 使用刚新建的secret
         BRANCH: gh-pages # 存放产物的分支名称
         FOLDER: dist  # 存放build后产物的目录  
-        BUILD_SCRIPT: npm install && node app.js # 执行的命令
+        BUILD_SCRIPT: npm install && npm run build # 执行的命令
