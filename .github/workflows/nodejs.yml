@@ -11,10 +11,9 @@ jobs:
       uses: actions/checkout@master # 将代码拷贝到虚机中
       with:
         persist-credentials: false
-    - name: Install and Build
+    - name: Install
       run: |
         npm install
-        npm run-script build
     - name: Node
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with: 
